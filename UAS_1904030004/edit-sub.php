@@ -1,8 +1,8 @@
 <?php
-require 'function-sub.php';
+require 'function.php';
 
 $id = $_GET['id'];
-$guru = query("SELECT * FROM tbl_mk WHERE id = $id");
+$mk = query("SELECT * FROM tbl_mk WHERE id = $id");
 if (isset($_POST['edit'])) {
   if (edit($_POST) > 0) {
     echo "
@@ -74,27 +74,38 @@ if (isset($_POST['edit'])) {
     <hr>
     <form method="POST" action="">
       <input type="hidden" class="form-control" value="<?= $mk['id'] ?>" name="id">
-      <div class="form-group">
 
-        <label for="kode_pengajar">Kode Pengajar </label>
-        <input type="text" class="form-control" id="kode_pengajar" name="kode_pengajar" value="<?= $mk['kode_pengajar'] ?>" autofocus required autocomplete="off">
+      <div class="form-group">
+        <label for="kode_pengajar">Kode Pengajar</label>
+        <input type="text" class="form-control" id="kode_pengajar" value="<?= $mk['kode_pengajar'] ?>" placeholder="Kode Pengajar" name="kode_pengajar" autofocus required autocomplete="off">
       </div>
 
-      <label for="nama_pelajaran">Nama Pelajaran </label>
-      <input type="text" class="form-control" id="nama_pelajaran" name="nama_pelajaran" value="<?= $mk['nama_pelajaran'] ?>" autofocus required autocomplete="off">
+      <div class="form-group">
+        <label for="nama_guru">Nama Guru</label>
+        <input type="text" class="form-control" id="nama_guru" value="<?= $mk['nama_guru'] ?>" placeholder="Nama Guru " name="Nama Guru" required autocomplete="off">
+      </div>
 
-      <label for="kelas1">Kelas 1 </label>
-      <input type="text" class="form-control" id="kelas1" name="kelas1" value="<?= $mk['kelas1'] ?>" autofocus required autocomplete="off">
+      <div class="form-group">
+        <label for="mata_pelajaran">Mata Pelajaran </label>
+        <input type="text" class="form-control" id="mata_pelajaran" value="<?= $mk['mata_pelajaran'] ?>" placeholder="Mata Pelajaran" name="mata_pelajaran" required autocomplete="off">
+      </div>
 
-      <label for="kelas2">kelas 2</label>
-      <input type="text" class="form-control" id="kelas2" name="kelas2" value="<?= $mk['kelas2'] ?>" autofocus required autocomplete="off">
+      <div class="form-group">
+        <label for="kelas1">Kelas 1 </label>
+        <input type="text" class="form-control" id="kelas1" value="<?= $mk['kelas1'] ?>" placeholder="Kelas 1" name="kelas1" required autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="kelas2">Kelas 2 </label>
+        <input type="text" class="form-control" id="kelas2" value="<?= $mk['kelas2'] ?>" placeholder="Kelas 2" name="kelas2" required autocomplete="off">
+      </div>
 
       <div class="form-group">
         <label for="kelas3">Kelas 3</label>
-        <input type="text" class="form-control" id="kelas3" name="kelas3" value="<?= $mk['kelas3'] ?>" required autocomplete="off">
+        <input type="text" class="form-control" id="kelas3" value="<?= $mk['kelas3'] ?>" placeholder="Kelas 3" name="kelas3" required autocomplete="off">
       </div>
 
-      <button type="submit" class="btn btn-primary mt-3" name="edit">Simpan</button>
+      <button type="tambah" class="btn btn-primary mt-3" name="edit">Simpan</button>
     </form>
   </div>
   <!-- Footer-->

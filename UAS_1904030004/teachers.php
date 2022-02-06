@@ -73,6 +73,8 @@ if (isset($_POST['cari'])) {
           <th scope="col">nidn</th>
           <th scope="col">Nama</th>
           <th scope="col">Alamat</th>
+          <th scope="col">Jenis Kelamin</th>
+          <th scope="col">Agama</th>
           <th scope="col">Mata Pelajaran</th>
           <th scope="col">Opsi</th>
         </tr>
@@ -96,6 +98,8 @@ if (isset($_POST['cari'])) {
             <td><?php echo $cmb['nidn']; ?></td>
             <td><?php echo $cmb['nama']; ?></td>
             <td><?php echo $cmb['alamat']; ?></td>
+            <td><?php echo $cmb['jenis_kelamin']; ?></td>
+            <td><?php echo $cmb['agama']; ?></td>
             <td><?php echo $cmb['mata_pelajaran']; ?></td>
             <td><a href="detail.php?id=<?= $cmb['id']; ?>" class="btn btn-warning" role="button">Detail</a></td>
           </tr>

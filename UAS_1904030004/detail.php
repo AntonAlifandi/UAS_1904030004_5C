@@ -2,7 +2,7 @@
 require 'function.php';
 //agar tidak bisa masuk ke pengetikan manual pada url
 if (!isset($_GET['id'])) {
-  header('location: index.php');
+  header('location: detail.php');
   exit;
 }
 $id = $_GET['id'];

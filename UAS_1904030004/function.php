@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', '', 'uas_1904030004');
+$conn = mysqli_connect('sql201.epizy.com', 'epiz_30996223', 'SvxvbmceMyE8fx', 'epiz_30996223_uas_1904030004');
 
 //pemanggilan tabel
 function query($query)
@@ -74,6 +74,32 @@ function edit($data)
 
     echo mysqli_error($conn);
     return mysqli_affected_rows($conn);
+
+    global $conn;
+
+    $id = htmlspecialchars($data['id']);
+    $kode_pengajar = htmlspecialchars($data['kode_pengajar']);
+    $nama_guru = htmlspecialchars($data['nama_guru']);
+    $mata_pelajaran = htmlspecialchars($data['mata_pelajaran']);
+    $kelas1 = htmlspecialchars($data['kelas1']);
+    $kelas2 = htmlspecialchars($data['kelas2']);
+    $kelas3 = htmlspecialchars($data['kelas3']);
+
+
+    $query = "UPDATE tbl_mk SET
+    kode_pengajar ='$kode_pengajar',
+    nama_guru ='$nama_guru',
+    mata_pelajaran ='$mata_pelajaran',
+    kelas1 ='$kelas1',
+    kelas2 = '$kelas2',
+    kelas3 ='$kelas3',
+    
+    WHERE id =$id;";
+
+    mysqli_query($conn, $query);
+
+    echo mysqli_error($conn);
+    return mysqli_affected_rows($conn);
 }
 
 function cari($keyword)
@@ -107,6 +133,6 @@ function search($keyword)
 function delete($iid)
 {
     global $conn;
-    mysqli_query($conn, "DELETE FROM tbl_pengajar WHERE id =$iid") or die(mysqli_error($conn));
+    mysqli_query($conn, "DELETE FROM tbl_mk WHERE id =$iid") or die(mysqli_error($conn));
     return mysqli_affected_rows($conn);
 }

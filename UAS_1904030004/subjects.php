@@ -1,5 +1,5 @@
 <?php
-require 'function-sub.php';
+require 'function.php';
 $mk = query("SELECT * FROM tbl_mk");
 if (isset($_POST['cari'])) {
   $mk = cari($_POST['keyword']);
@@ -70,7 +70,9 @@ if (isset($_POST['cari'])) {
       <thead>
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama Pelajaran</th>
+          <th scope="col">Kode Guru</th>
+          <th scope="col">Nama Guru</th>
+          <th scope="col">Mata Pelajaran</th>
           <th scope="col">Kelas 1</th>
           <th scope="col">Kelas 2</th>
           <th scope="col">kelas 3</th>
@@ -93,11 +95,13 @@ if (isset($_POST['cari'])) {
         <?php foreach ($mk as $cmb) : ?>
           <tr>
             <th scope="row"><?php echo $no; ?></th>
-            <td><?php echo $cmb['nama_pelajaran']; ?></td>
+            <td><?php echo $cmb['kode_pengajar']; ?></td>
+            <td><?php echo $cmb['nama_guru']; ?></td>
+            <td><?php echo $cmb['mata_pelajaran']; ?></td>
             <td><?php echo $cmb['kelas1']; ?></td>
             <td><?php echo $cmb['kelas2']; ?></td>
             <td><?php echo $cmb['kelas3']; ?></td>
-            <td><a href="detail-sub.php?id=<?= $cmb['kode_pengajar']; ?>" class="btn btn-warning" role="button">Detail</a></td>
+            <td><a href="detail-sub.php?id=<?= $cmb['id']; ?>" class="btn btn-warning" role="button">Detail</a></td>
           </tr>
           <?php $no++ ?>
         <?php endforeach ?>

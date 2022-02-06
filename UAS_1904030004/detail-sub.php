@@ -1,12 +1,12 @@
 <?php
-require 'function-sub.php';
+require 'function.php';
 //agar tidak bisa masuk ke pengetikan manual pada url
 if (!isset($_GET['id'])) {
   header('location: index.php');
   exit;
 }
 $id = $_GET['id'];
-$mk = query("SELECT * FROM tbl_mk WHERE kode_pengajar = $id");
+$mk = query("SELECT * FROM tbl_mk WHERE id = $id");
 ?>
 
 <!DOCTYPE html>
@@ -56,20 +56,20 @@ $mk = query("SELECT * FROM tbl_mk WHERE kode_pengajar = $id");
   <div class="col-md-10 p-5 pt-5 mt-5 pb-5">
     <!-- konten -->
 
-    <h3><i class="fas fa-users mt-5"></i>Daftar Nama Pelajaran</h3>
+    <h3><i class="fas fa-users mt-5"></i>Daftar Mata Pelajaran</h3>
 
     <hr class="mb-5">
 
     <ul class="list-group">
       <li class="list-group-item active"><?= $mk['nama_guru']; ?></li>
-      <li class="list-group-item"><?= $mk['nama_pelajaran']; ?></li>
+      <li class="list-group-item"><?= $mk['mata_pelajaran']; ?></li>
       <li class="list-group-item"><?= $mk['kelas1']; ?></li>
       <li class="list-group-item"><?= $mk['kelas2']; ?></li>
       <li class="list-group-item"><?= $mk['kelas3']; ?></li>
       <li class="list-group-item">
         <a href="edit-sub.php?id=<?= $mk['id']; ?>" class="btn btn-warning" role="button">Edit</a>
-        <a href="hapus-sub.php?id=<?= $mk['id']; ?>" onclick="return confirm('apakah anda akan menghapus data ini');" class="btn btn-danger" role="button">Hapus</a>
-        <a href="detail-sub.php" class="btn btn-primary" role="button">Kembali</a>
+        <a href="hapus.php?id=<?= $mk['id']; ?>" onclick="return confirm('apakah anda akan menghapus data ini');" class="btn btn-danger" role="button">Hapus</a>
+        <a href="subjects.php" class="btn btn-primary" role="button">Kembali</a>
       </li>
     </ul>
 

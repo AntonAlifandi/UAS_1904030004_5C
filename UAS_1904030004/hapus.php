@@ -1,41 +1,36 @@
 <?php
-require 'function.php';
+require "function.php";
 
-//agar tidak bisa masuk ke pengetikan manual pada url
+// Agar Tidak Bisa Masuk Secara Pengetikan Manual Pada Url
 if (!isset($_GET['id'])) {
-  header('location: index.php');
+  header("location: index.php");
   exit;
 }
 
-
 $id = $_GET['id'];
-if (hapus($id)) {
-  echo "
-            <script>
-            alert('data berhasil dihapus..!');
-            document.location.href= 'teachers.php'
-            </script>
-            ";
+if (hapus($id) > 0) {
+  echo
+  "<script>
+        alert('Data Berhasil di Hapus');
+        document.location.href = 'teachers.php';
+        </scrupt>";
 } else {
-  echo "
-            <script>
-            alert('data gagal dihapus ');
-            </script>
-            ";
+  echo
+  "<script>
+        alert('Data Gagal Dihapus');
+        </scrupt>";
 }
 
-$nidn = $_GET['nidn'];
-if (hapus($nidn)) {
-  echo "
-            <script>
-            alert('data berhasil dihapus..!');
-            document.location.href= 'index.php'
-            </script>
-            ";
+$iid = $_GET['id'];
+if (delete($iid) > 0) {
+  echo
+  "<script>
+        alert('Data Berhasil di Hapus');
+        document.location.href = 'subjects.php';
+        </scrupt>";
 } else {
-  echo "
-            <script>
-            alert('data gagal dihapus ');
-            </script>
-            ";
+  echo
+  "<script>
+        alert('Data Gagal Dihapus');
+        </scrupt>";
 }

@@ -8,7 +8,7 @@ if (isset($_POST['edit'])) {
     echo "
             <script>
             alert('data berhasil diedit..!');
-            document.location.href='teachers.php'
+            document.location.href='detail.php'
             </script>
             ";
   } else {
@@ -74,22 +74,25 @@ if (isset($_POST['edit'])) {
     <hr>
     <form method="POST" action="">
       <input type="hidden" class="form-control" value="<?= $guru['id'] ?>" name="id">
-      <div class="form-group">
 
+      <div class="form-group">
         <label for="nama">Nama </label>
-        <input type="text" class="form-control" id="nama" name="nama" value="<?= $guru['nama'] ?>" autofocus required autocomplete="off">
+        <input type="text" class="form-control" id="nama" value="<?= $guru['nama'] ?>" placeholder="nama" name="nama" autofocus required autocomplete="off">
       </div>
 
-      <label for="nama">Alamat </label>
-      <input type="text" class="form-control" id="alamat" name="alamat" value="<?= $guru['alamat'] ?>" autofocus required autocomplete="off">
+      <div class="form-group">
+        <label for="alamat">Alamat </label>
+        <input type="text" class="form-control" id="alamat" value="<?= $guru['alamat'] ?>" placeholder="alamat" name="alamat" autofocus required autocomplete="off">
+      </div>
 
       <div class="form-group">
-        <label for="jenis_kelamin">jenis kelamin</label>
+        <label for="jenis_kelamin">Jenis kelamin</label>
         <select class="form-select" aria-label="jenis_kelamin" id="jenis_kelamin" name="jenis_kelamin" value="<?= $guru['jenis_kelamin'] ?>" required autocomplete="off">
           <option selected>Pilih salah satu</option>
           <option value="laki-laki">laki-laki</option>
           <option value="perempuan">perempuan</option>
         </select>
+
       </div>
       <div class="form-group">
         <label for="agama">Agama</label>
@@ -102,9 +105,10 @@ if (isset($_POST['edit'])) {
           <option value="buddha">buddha</option>
         </select>
       </div>
+
       <div class="form-group">
-        <label for="mata_pelajaran">Mata Pelajaran</label>
-        <input type="text" class="form-control" id="mata_pelajaran" name="mata_pelajaran" value="<?= $guru['mata_pelajaran'] ?>" required autocomplete="off">
+        <label for="mata_pelajaran">Mata Pelajaran </label>
+        <input type="text" class="form-control" id="mata_pelajaran" value="<?= $guru['mata_pelajaran'] ?>" placeholder="mata_pelajaran" name="mata_pelajaran" autofocus required autocomplete="off">
       </div>
 
       <button type="tambah" class="btn btn-primary mt-3" name="edit">Simpan</button>
